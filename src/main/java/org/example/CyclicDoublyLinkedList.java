@@ -1,7 +1,7 @@
 package org.example;
 
 class CyclicDoublyLinkedList {
-    private Node head;
+    public Node head;
 
     public void insert(int data) {
         Node newNode = new Node(data);

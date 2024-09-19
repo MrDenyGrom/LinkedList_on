@@ -10,17 +10,21 @@ public class CyclicDoublyLinkedListSum {
         System.out.print("Введите число K: ");
         int K = scanner.nextInt();
 
-        System.out.print("Введите количество элементов: ");
-        int n = scanner.nextInt();
-
+        System.out.print("Введите элементы последовательности, заканчивая её точкой: ");
         CyclicDoublyLinkedList list = new CyclicDoublyLinkedList();
+        String input;
+        do {
+            input = scanner.next();
+            if (!input.equals(".")) {
+                list.insert(Integer.parseInt(input));
+            }
+        } while (!input.equals("."));
 
-        System.out.println("Введите элементы последовательности: ");
-        for (int i = 0; i < n; i++) {
-            list.insert(scanner.nextInt());
+        if (list.head == null) {
+            System.out.println("\nСписок пуст.");
+        } else {
+            System.out.println("\nИсходная последовательность: " + list);
+            list.sumElements(K);
         }
-
-        System.out.println("\nИсходная последовательность: " + list);
-        list.sumElements(K);
     }
 }
